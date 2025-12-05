@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product
+      Id="*"
+      Name="Visure Extractor"
+      Language="1033"
+      Version="1.0.0"
+      Manufacturer="Federico Gabrielli"
+      UpgradeCode="A1234567-B89C-4DEF-0123-456789ABCDEF">
+
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+    <MediaTemplate />
+
+    <Feature Id="MainFeature" Title="Visure Extractor" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="VisureExtractor">
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents">
+      <Component Id="AppExe" Guid="*">
+        <File Source="dist\app_visure_pyqt.exe" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+</Wix>
